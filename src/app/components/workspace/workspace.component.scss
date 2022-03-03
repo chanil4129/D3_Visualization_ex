@@ -1,0 +1,41 @@
+.container {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-column-gap: 1px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "left right";
+  
+    .toolbar {
+      grid-area: header;
+  
+      .item {
+        margin: 0 10px;
+      }
+      .spacer {
+        flex: 1 1 auto;
+      }
+  
+      .mat-select {
+        width: 90px;
+      }
+    }
+  
+    .left {
+      grid-area: left;
+    }
+  
+    .center {
+      grid-area: center;
+    }
+  
+    .right {
+      grid-area: right;
+    }
+
+}
+  
