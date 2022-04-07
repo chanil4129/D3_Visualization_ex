@@ -13,6 +13,9 @@ import { Bar2ChartComponent } from './components/charts/bar2-chart/bar2-chart.co
 import { Bar3ChartComponent } from './components/charts/bar3-chart/bar3-chart.component';
 import { Line2ChartComponent } from './components/charts/line2-chart/line2-chart.component';
 import { Line3ChartComponent } from './components/charts/line3-chart/line3-chart.component';
+import { TreemapComponent } from './components/charts/treemap/treemap.component';
+import { ZoomableTreemapComponent } from './components/charts/zoomable-treemap/zoomable-treemap.component';
+import { BrushZoomComponent } from './components/charts/brush-zoom/brush-zoom.component';
 
 
 @NgModule({
@@ -24,7 +27,11 @@ import { Line3ChartComponent } from './components/charts/line3-chart/line3-chart
     Bar2ChartComponent,
     Bar3ChartComponent,
     Line2ChartComponent,
-    Line3ChartComponent
+    Line3ChartComponent,
+    TreemapComponent,
+    ZoomableTreemapComponent,
+    BrushZoomComponent,
+
   ],
   imports: [
     BrowserModule,

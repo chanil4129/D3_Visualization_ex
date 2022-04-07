@@ -17,16 +17,16 @@ export class Line2ChartComponent implements OnInit, AfterViewInit {
 
   svgRoot: any;
   constructor(private ls: Line2DataService) {
-    this.ls.clickToSend$.subscribe((data) => {
-      console.log(data);
-      if (data.year) {
-        d3.selectAll('.line').style('opacity', 1);
-      }
-      else {
-        d3.selectAll('.line').style('opacity', 0.05);
-        d3.selectAll('.' + data.year).style('opacity', 1);
-      }
-    });
+    // this.ls.clickToSend$.subscribe((data) => {
+    //   console.log(data);
+    //   if (data.year) {
+    //     d3.selectAll('.line').style('opacity', 1);
+    //   }
+    //   else {
+    //     d3.selectAll('.line').style('opacity', 0.05);
+    //     d3.selectAll('.' + data.year).style('opacity', 1);
+    //   }
+    // });
   }
 
   ngAfterViewInit(): void {
@@ -43,8 +43,8 @@ export class Line2ChartComponent implements OnInit, AfterViewInit {
     const height = 500 - margin.top - margin.bottom;
 
     this.svgRoot = d3.select(this.svg?.nativeElement)
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
+      .attr('width', 1000)
+      .attr('height',500)
       .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
     const svg = this.svgRoot.append('g').attr('class', 'container');
@@ -87,7 +87,6 @@ export class Line2ChartComponent implements OnInit, AfterViewInit {
         .enter()
         .append("circle")
         .attr("r", 5)   //점 크기
-        .attr("transform", "translate(70,0)")    //위치 억지로 맞춘거임.. 질문
         .attr("cx", (d: { year: string; }) => x(d.year))
         .attr("cy", (d: { value: d3.NumberValue; }) => y(d.value))
         .style("fill", "black")
@@ -100,7 +99,6 @@ export class Line2ChartComponent implements OnInit, AfterViewInit {
 
       svg.append("path")
         .attr("d", linearGenerator(data as any))
-        .attr("transform", "translate(70,0)")    //위치 억지로 맞춘거임.. 질문
         .attr("fill", "none")
         .attr("stroke-width", 2)
         .attr("stroke", "black")
